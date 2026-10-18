@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- SEO -->
+  <title>Stack Tower — Free Online Block Stacking Game</title>
+  <meta name="description" content="Stack blocks as high as you can! A free, mobile-friendly tower stacking game. Tap to drop, aim for perfect alignment, and beat your high score." />
+  <meta name="keywords" content="stack tower, block stacking, game, free, online, mobile game" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stack Tower — Block Stacking Game" />
+  <meta property="og:description" content="Stack blocks as high as you can! Tap to drop, aim for perfect alignment, and beat your high score." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/icon-512.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Stack Tower — Block Stacking Game" />
+  <meta name="twitter:description" content="Stack blocks as high as you can! Free mobile-friendly tower stacking game." />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+</head>
+<body>
+  <!-- Game Canvas -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- ═══════════ Start Screen ═══════════ -->
+  <div id="screen-start" class="screen-overlay">
+    <h1 class="game-title">Stack Tower</h1>
+    <p class="start-subtitle">How high can you go?</p>
+    <p id="start-best-score" class="start-best-score">Best: 0</p>
+    <div class="start-buttons">
+      <button id="btn-play" class="btn btn-primary" type="button">▶ PLAY</button>
+    </div>
+    <div class="start-secondary">
+      <button id="btn-how-to-play" class="btn btn-secondary" type="button">How to Play</button>
+      <button id="btn-sound-start" class="btn btn-icon" type="button" aria-label="Sound On">🔊</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ How to Play Screen ═══════════ -->
+  <div id="screen-how-to-play" class="screen-overlay hidden">
+    <div class="how-to-play-card">
+      <h2>How to Play</h2>
+      <div class="how-to-play-steps">
+        <div class="how-to-play-step">
+          <span class="step-icon">👆</span>
+          <span><strong>Tap</strong> anywhere to drop the sliding block.</span>
+        </div>
+        <div class="how-to-play-step">
+          <span class="step-icon">🎯</span>
+          <span><strong>Align it</strong> with the block below. Overhanging parts are cut off!</span>
+        </div>
+        <div class="how-to-play-step">
+          <span class="step-icon">✨</span>
+          <span><strong>Perfect drops</strong> keep your block full-size and give bonus points.</span>
+        </div>
+        <div class="how-to-play-step">
+          <span class="step-icon">🔥</span>
+          <span><strong>3 perfects in a row</strong> grow your block back! Keep the streak alive.</span>
+        </div>
+        <div class="how-to-play-step">
+          <span class="step-icon">🏆</span>
+          <span><strong>Stack as high</strong> as you can and beat your best score!</span>
+        </div>
+      </div>
+      <button id="btn-how-to-play-close" class="btn btn-primary" type="button">Got it!</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ In-Game HUD ═══════════ -->
+  <div id="screen-hud" class="screen-overlay hidden">
+    <div class="hud-top">
+      <span id="hud-score" class="hud-score">0</span>
+      <button id="btn-pause" class="hud-pause-btn" type="button" aria-label="Pause">⏸</button>
+    </div>
+    <span id="hud-combo" class="hud-combo hidden"></span>
+  </div>
+
+  <!-- ═══════════ Pause Screen ═══════════ -->
+  <div id="screen-pause" class="screen-overlay hidden">
+    <h2 class="pause-title">Paused</h2>
+    <div class="pause-buttons">
+      <button id="btn-resume" class="btn btn-primary" type="button">▶ Resume</button>
+      <button id="btn-restart-pause" class="btn btn-secondary" type="button">↺ Restart</button>
+      <button id="btn-sound-pause" class="btn btn-icon" type="button" aria-label="Sound On">🔊</button>
+      <button id="btn-menu-pause" class="btn btn-secondary" type="button">Main Menu</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ Game Over Screen ═══════════ -->
+  <div id="screen-game-over" class="screen-overlay hidden">
+    <p class="game-over-title">Game Over</p>
+    <p id="game-over-score" class="game-over-score">0</p>
+    <p id="game-over-best" class="game-over-best">Best: 0</p>
+    <p id="game-over-new-best" class="game-over-new-best hidden">🎉 NEW BEST! 🎉</p>
+    <div class="game-over-buttons">
+      <button id="btn-play-again" class="btn btn-primary" type="button">▶ Play Again</button>
+      <button id="btn-menu-gameover" class="btn btn-secondary" type="button">Main Menu</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
