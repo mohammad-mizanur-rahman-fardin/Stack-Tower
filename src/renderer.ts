@@ -25,12 +25,18 @@ export class Renderer {
   private ctx: CanvasRenderingContext2D;
   private shakeTime = 0;
   private shakeIntensity = 0;
+  private canvas: HTMLCanvasElement;
+  private playAreaWidth: number;
+  private playAreaHeight: number;
 
   constructor(
-    private canvas: HTMLCanvasElement,
-    private playAreaWidth: number,
-    private playAreaHeight: number,
+    canvas: HTMLCanvasElement,
+    playAreaWidth: number,
+    playAreaHeight: number,
   ) {
+    this.canvas = canvas;
+    this.playAreaWidth = playAreaWidth;
+    this.playAreaHeight = playAreaHeight;
     this.ctx = canvas.getContext('2d')!;
   }
 
