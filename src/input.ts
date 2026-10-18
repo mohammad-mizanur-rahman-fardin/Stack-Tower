@@ -9,8 +9,10 @@ export class Input {
   private dropCallbacks: InputCallback[] = [];
   private pauseCallbacks: InputCallback[] = [];
   private enabled = true;
+  private canvas: HTMLCanvasElement;
 
-  constructor(private canvas: HTMLCanvasElement) {
+  constructor(canvas: HTMLCanvasElement) {
+    this.canvas = canvas;
     this.setupPointerEvents();
     this.setupKeyboardEvents();
   }
